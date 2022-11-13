@@ -1,0 +1,34 @@
+Horizontal Fragmentation
+1. select * from Products where Products.listPrice>300
+2. select * from Products where Products.listPrice>=300 and Products.listPrice<=50000
+
+Vertical Fragmentation
+1. select Vendors.vendorName from Vendors
+2. select Vendors.vendorName from Vendors where Vendors.addressID=1
+3. select * from Vendors where Vendors.vendorName='abc' or Vendors.vendorName='pqr' or Vendors.addressID=4 or Vendors.vendorName='pqrs'
+
+
+Hybrid + Horizontal Join
+1. select Products.productName from Products,Categories where Products.categoryID=Categories.categoryID
+
+Hybrid + Horizontal + No Fragmentation JOIN
+1. select Products.productName from Products,Categories,Inventories where Products.categoryID=Categories.categoryID and Products.productID=Inventories.productID and Categories.categoryName="Fashion" and Products.listPrice>3000 and Products.listPrice<=50000
+
+Vertical Fragmentation + No Fragmentation JOIN
+1. select * from Inventories,Vendors where Vendors.vendorID=Inventories.vendorID
+
+Complex AND/OR clause JOIN
+1. select Products.productName from Products,Categories where Products.categoryID=Categories.categoryID and (Products.listPrice>10000 or Products.listPrice<=500)
+
+Aggregate Queries
+1. select categoryID, MAX(listPrice) from Products GROUP BY categoryID 
+2. select MIN(listPrice) from Products GROUP BY categoryID
+3. select AVG(listPrice) from Products GROUP BY categoryID
+4. select SUM(listPrice) from Products GROUP BY categoryID
+5. select MAX(listPrice) from Products where categoryID=1 GROUP BY categoryID 
+6. select Products.categoryID, AVG(listPrice) from Products, Categories where Products.categoryID = Categories.categoryID GROUP BY categoryID
+7. select min(Products.listPrice) from Products GROUP BY Products.productName HAVING count(*)=1
+
+
+KILL PROCESS on port
+sudo kill -9 `sudo lsof -t -i:8081`
