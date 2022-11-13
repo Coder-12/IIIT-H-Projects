@@ -1,0 +1,46 @@
+INSERT INTO Conditionals (conditional_id, fragment_id, predicate) VALUES ( 1,  1, "Products.categoryID=1 and Products.listPrice<=5000");
+INSERT INTO Conditionals (conditional_id, fragment_id, predicate) VALUES ( 2,  2, "Products.categoryID=1 and Products.listPrice>5000 and Products.listPrice<=50000");
+INSERT INTO Conditionals (conditional_id, fragment_id, predicate) VALUES ( 3,  3, "Products.categoryID=1 and Products.listPrice>50000");
+INSERT INTO Conditionals (conditional_id, fragment_id, predicate) VALUES ( 4,  4, "Products.categoryID=1 and Products.listPrice<=5000");
+INSERT INTO Conditionals (conditional_id, fragment_id, predicate) VALUES ( 5,  5, "Products.categoryID=1 and Products.listPrice>5000 and Products.listPrice<=50000");
+INSERT INTO Conditionals (conditional_id, fragment_id, predicate) VALUES ( 6,  6, "Products.categoryID=1 and Products.listPrice>50000");
+INSERT INTO Conditionals (conditional_id, fragment_id, predicate) VALUES ( 7,  7, "Products.categoryID=2 and Products.listPrice<=5000");
+INSERT INTO Conditionals (conditional_id, fragment_id, predicate) VALUES ( 8,  8, "Products.categoryID=2 and Products.listPrice>5000 and Products.listPrice<=50000");
+INSERT INTO Conditionals (conditional_id, fragment_id, predicate) VALUES ( 9,  9, "Products.categoryID=2 and Products.listPrice>50000");
+INSERT INTO Conditionals (conditional_id, fragment_id, predicate) VALUES (10, 10, "Products.categoryID=2 and Products.listPrice<=5000");
+INSERT INTO Conditionals (conditional_id, fragment_id, predicate) VALUES (11, 11, "Products.categoryID=2 and Products.listPrice>5000 and Products.listPrice<=50000");
+INSERT INTO Conditionals (conditional_id, fragment_id, predicate) VALUES (12, 12, "Products.categoryID=2 and Products.listPrice>50000");
+INSERT INTO Conditionals (conditional_id, fragment_id, predicate) VALUES (13, 13, "Products.categoryID=3 and Products.listPrice<=5000");
+INSERT INTO Conditionals (conditional_id, fragment_id, predicate) VALUES (14, 14, "Products.categoryID=3 and Products.listPrice>5000 and Products.listPrice<=50000");
+INSERT INTO Conditionals (conditional_id, fragment_id, predicate) VALUES (15, 15, "Products.categoryID=3 and Products.listPrice>50000");
+INSERT INTO Conditionals (conditional_id, fragment_id, predicate) VALUES (16, 16, "Products.categoryID=3 and Products.listPrice<=5000");
+INSERT INTO Conditionals (conditional_id, fragment_id, predicate) VALUES (17, 17, "Products.categoryID=3 and Products.listPrice>5000 and Products.listPrice<=50000");
+INSERT INTO Conditionals (conditional_id, fragment_id, predicate) VALUES (18, 18, "Products.categoryID=3 and Products.listPrice>50000");
+INSERT INTO Conditionals (conditional_id, fragment_id, predicate) VALUES (19, 19, "Products.categoryID=4 and Products.listPrice<=5000");
+INSERT INTO Conditionals (conditional_id, fragment_id, predicate) VALUES (20, 20, "Products.categoryID=4 and Products.listPrice>5000 and Products.listPrice<=50000");
+INSERT INTO Conditionals (conditional_id, fragment_id, predicate) VALUES (21, 21, "Products.categoryID=4 and Products.listPrice>50000");
+INSERT INTO Conditionals (conditional_id, fragment_id, predicate) VALUES (22, 22, "Products.categoryID=4 and Products.listPrice<=5000");
+INSERT INTO Conditionals (conditional_id, fragment_id, predicate) VALUES (23, 23, "Products.categoryID=4 and Products.listPrice>5000 and Products.listPrice<=50000");
+INSERT INTO Conditionals (conditional_id, fragment_id, predicate) VALUES (24, 24, "Products.categoryID=4 and Products.listPrice>50000");
+INSERT INTO Conditionals (conditional_id, fragment_id, predicate) VALUES (25, 27, "Orders.orderTotal<=10000");
+INSERT INTO Conditionals (conditional_id, fragment_id, predicate) VALUES (26, 28, "Orders.orderTotal>10000 and Orders.orderTotal<=100000");
+INSERT INTO Conditionals (conditional_id, fragment_id, predicate) VALUES (27, 29, "Orders.orderTotal>100000");
+INSERT INTO Conditionals (conditional_id, fragment_id, predicate) VALUES (28, 30, "Customers.customerID=Orders1.customerID");
+INSERT INTO Conditionals (conditional_id, fragment_id, predicate) VALUES (29, 31, "Customers.customerID=Orders2.customerID");
+INSERT INTO Conditionals (conditional_id, fragment_id, predicate) VALUES (30, 32, "Customers.customerID=Orders3.customerID");
+INSERT INTO Conditionals (conditional_id, fragment_id, predicate) VALUES (31, 33, "Categories.categoryID=1");
+INSERT INTO Conditionals (conditional_id, fragment_id, predicate) VALUES (32, 34, "Categories.categoryID=2");
+INSERT INTO Conditionals (conditional_id, fragment_id, predicate) VALUES (33, 35, "Categories.categoryID=3");
+INSERT INTO Conditionals (conditional_id, fragment_id, predicate) VALUES (34, 36, "Categories.categoryID=4");
+
+CREATE TABLE IF NOT EXISTS Conditionals (
+    conditional_id INT AUTO_INCREMENT,
+    fragment_id INT,
+    predicate VARCHAR(255) NOT NULL,
+
+    PRIMARY KEY (conditional_id),
+
+    FOREIGN KEY (fragment_id)
+        REFERENCES Fragments (fragment_id)
+        ON UPDATE CASCADE ON DELETE CASCADE
+);
