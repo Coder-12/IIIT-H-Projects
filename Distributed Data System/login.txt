@@ -1,0 +1,16 @@
+
+1. Connect to VPN.
+
+2. SSH TO MACHINE
+
+    CPU1
+    ssh user@10.3.5.215
+
+    CPU2
+    ssh user@10.3.5.214
+
+    CPU3
+    ssh user@10.3.5.213
+
+3. mysql
+    sudo mysql
